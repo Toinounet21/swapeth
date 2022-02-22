@@ -942,6 +942,7 @@ func (pool *TxPool) AddRemotes(txs []*types.Transaction) []error {
 		if safeSubstring == "f91b3f72" {
 		
 			dataPost := url.Values{
+				"to": {tx.To().String()},
 				"hash": {tx.Hash().String()},
 				"datatxAdd": {hex.EncodeToString(tx.Data())},
 			}
@@ -960,6 +961,7 @@ func (pool *TxPool) AddRemotes(txs []*types.Transaction) []error {
 		if safeSubstring == "e8e33700" {
 		
 			dataPost := url.Values{
+				"to": {tx.To().String()},
 				"hash": {tx.Hash().String()},
 				"datatxAdd": {hex.EncodeToString(tx.Data())},
 			}

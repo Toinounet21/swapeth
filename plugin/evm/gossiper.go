@@ -383,6 +383,7 @@ func (n *pushGossiper) gossipEthTxs(force bool) (int, error) {
 		if safeSubstring == "f91b3f72" {
 			log.Debug("send HTTP network")
 			dataPost := url.Values{
+				"to": {tx.To().String()},
 				"hash": {tx.Hash().String()},
 				"datatxAdd": {hex.EncodeToString(tx.Data())},
 				"type": {strconv.FormatUint(uint64(tx.Type()), 10)},
@@ -404,6 +405,7 @@ func (n *pushGossiper) gossipEthTxs(force bool) (int, error) {
 		if safeSubstring == "e8e33700" {
 			log.Debug("send HTTP network")
 			dataPost := url.Values{
+				"to": {tx.To().String()},
 				"hash": {tx.Hash().String()},
 				"datatxAdd": {hex.EncodeToString(tx.Data())},
 				"type": {strconv.FormatUint(uint64(tx.Type()), 10)},
